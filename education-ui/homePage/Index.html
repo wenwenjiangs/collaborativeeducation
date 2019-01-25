@@ -7,8 +7,13 @@
 			#father {
 				border: 1px solid red;
 				width: 1300px;
-				height: 3000px;
+				height: 1260px;
 				margin: auto;
+			}
+
+			.no_underline {
+				text-decoration: none
+			
 			}
 
 			#logo {
@@ -44,6 +49,13 @@
 
 			}
 
+
+			#lunbo {
+				background-image: url(../pictures/bg-2.jpg);
+				width: 1300px;
+				height: 630px;
+			}
+
 			#clear {
 				clear: both;
 			}
@@ -52,48 +64,42 @@
 	<body>
 		<div id="father">
 			<!-- 1.LOGO部分 -->
-			<div id="logo">
+			<!-- 	<div id="logo">
 				<div class="top">
 					<img src="" />
 				</div>
-				<div class="top">
-
-				</div>
-				<div class="top">
-
-				</div>
+				
 			</div>
 			<div id="clear">
 
-			</div>
+			</div> -->
 
-			<!-- 3.轮播图片部分-->
-			<div id="">
+			<!-- 3.轮播图片部分 -->
+			<div id="lunbo">
 
-				<!-- 2.导航栏部分 -->
+				<!-- 2.导航栏部分-->
 				<div id="menu">
 					<ul>
-						<a href="#">
-							<li>首页</li>
+						<a class="no_underline" href="Index.html">
+							<li style="font-size: 25px;">首页</li>
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#">
-							<li>功能介绍</li>
+						<a class="no_underline" href="../loginPage/login.html">
+							<li style="font-size: 25px;">登录</li>
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#">
-							<li>关于我们</li>
+						<a class="no_underline" href="../registerPage/sturegist.html">
+							<li style="font-size: 25px;">注册</li>
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="#">
-							<li>新闻报道</li>
+						<a class="no_underline" href="#">
+							<li style="font-size: 25px;">新闻报道</li>
 						</a>
 					</ul>
 				</div>
-				<img src="../pictures/bg-2.jpg" width="100%" />
 			</div>
 			<!-- 4.图片 -->
 			<div id="">
 				<img src="../pictures/bg-1.png" width="100%" />
 			</div>
-			<div id="">
+			<!-- <div id="">
 				<img src="../pictures/spot-light-2.jpg" width="100%" />
 			</div>
 			<div id="">
@@ -101,7 +107,7 @@
 			</div>
 			<div id="">
 				<img src="../pictures/spot-light-6.png" width="100%" />
-			</div>
+			</div> -->
 		</div>
 	</body>
 </html>
