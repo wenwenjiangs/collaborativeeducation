@@ -5,7 +5,7 @@
 		<title>首页</title>
 		<style>
 			#father {
-				border: 1px solid red;
+				border: 0px solid red;
 				width: 1300px;
 				height: 1260px;
 				margin: auto;
@@ -13,7 +13,6 @@
 
 			.no_underline {
 				text-decoration: none
-			
 			}
 
 			#logo {
@@ -36,7 +35,7 @@
 			}
 
 			#menu {
-				border: 1px solid black;
+				border: 0px solid black;
 				padding-top: 12px;
 				width: 1300px;
 				height: 70px;
@@ -54,60 +53,55 @@
 				background-image: url(../pictures/bg-2.jpg);
 				width: 1300px;
 				height: 630px;
+
 			}
 
-			#clear {
-				clear: both;
-			}
 		</style>
+		<script>
+			function init() {
+				//书写轮播图片显示定时操作
+				setInterval("changeImg()", 3000);
+			}
+
+			//书写函数
+			var i = 0
+
+			function changeImg() {
+				i++;
+				document.getElementById("img1").src = "../pictures/bg-"+i+".jpg";
+				if (i == 2) {
+					i = 0;
+				}
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="init()">
 		<div id="father">
 			<!-- 1.LOGO部分 -->
-			<!-- 	<div id="logo">
-				<div class="top">
-					<img src="" />
-				</div>
-				
+		
+			<!-- 2.导航栏部分-->
+			<div id="menu">
+				<ul>
+					<a class="no_underline" href="Index.html">
+						<li style="font-size: 25px;">首页</li>
+					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="no_underline" href="../loginPage/login.html">
+						<li style="font-size: 25px;">登录</li>
+					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="no_underline" href="../registerPage/sturegist.html">
+						<li style="font-size: 25px;">注册</li>
+					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="no_underline" href="#">
+						<li style="font-size: 25px;">新闻报道</li>
+					</a>
+				</ul>
 			</div>
-			<div id="clear">
-
-			</div> -->
-
 			<!-- 3.轮播图片部分 -->
-			<div id="lunbo">
+			<div id="">
+				<img src="../pictures/bg-1.jpg" width="100%" id="img1" />
 
-				<!-- 2.导航栏部分-->
-				<div id="menu">
-					<ul>
-						<a class="no_underline" href="Index.html">
-							<li style="font-size: 25px;">首页</li>
-						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="no_underline" href="../loginPage/login.html">
-							<li style="font-size: 25px;">登录</li>
-						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="no_underline" href="../registerPage/sturegist.html">
-							<li style="font-size: 25px;">注册</li>
-						</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="no_underline" href="#">
-							<li style="font-size: 25px;">新闻报道</li>
-						</a>
-					</ul>
-				</div>
 			</div>
-			<!-- 4.图片 -->
-			<div id="">
-				<img src="../pictures/bg-1.png" width="100%" />
-			</div>
-			<!-- <div id="">
-				<img src="../pictures/spot-light-2.jpg" width="100%" />
-			</div>
-			<div id="">
-				<img src="../pictures/spot-light-4.png" width="100%" />
-			</div>
-			<div id="">
-				<img src="../pictures/spot-light-6.png" width="100%" />
-			</div> -->
+			
 		</div>
 	</body>
 </html>
