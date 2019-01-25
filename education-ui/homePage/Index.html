@@ -10,65 +10,32 @@
 				height: 600px;
 				margin: auto;
 			}
-
 			.no_underline {
 				text-decoration: none
 			}
-
-			#logo {
-				border: 1px solid black;
-				width: 1300px;
-				height: 50px;
-			}
-
-
-			.top {
-				border: 1px solid blue;
-				width: 431px;
-				height: 50px;
-				float: left;
-			}
-
-			#top {
-				padding-top: 12px;
-				height: 38px;
-			}
-
 			#menu {
 				border: 0px solid black;
 				padding-top: 12px;
 				width: 1300px;
 				height: 70px;
-
 			}
 
 			ul li {
 				display: inline;
 				color: black;
-
-			}
-
-
-			#lunbo {
-				background-image: url(../pictures/bg-2.jpg);
-				width: 1300px;
-				height: 630px;
-
 			}
 
 		</style>
 		<script>
 			function init() {
 				//书写轮播图片显示定时操作
-				setInterval("changeImg()", 3000);
+				setInterval("changeImg()", 4000);
 			}
-
 			//书写函数
 			var i = 0
-
 			function changeImg() {
 				i++;
-				document.getElementById("img1").src = "../pictures/bg-"+i+".jpg";
+				document.getElementById("img1").src = "../pictures/bg-" + i + ".jpg";
 				if (i == 2) {
 					i = 0;
 				}
@@ -77,9 +44,7 @@
 	</head>
 	<body onload="init()">
 		<div id="father">
-			<!-- 1.LOGO部分 -->
-		
-			<!-- 2.导航栏部分-->
+			<!-- 1.导航栏部分-->
 			<div id="menu">
 				<ul>
 					<a class="no_underline" href="Index.html">
@@ -96,12 +61,10 @@
 					</a>
 				</ul>
 			</div>
-			<!-- 3.轮播图片部分 -->
+			<!-- 2.轮播图片部分 -->
 			<div id="">
 				<img src="../pictures/bg-1.jpg" width="100%" id="img1" />
-
 			</div>
-			
 		</div>
 	</body>
 </html>
