@@ -3,41 +3,93 @@
 	<head>
 		<meta charset="utf-8">
 		<title>注册页面</title>
+		<style>
+			#father {
+				border: 0px solid red;
+				width: 1300px;
+				height: 600px;
+				margin: auto;
+				background:url('../pictures/regist_bg.jpg');
+			}
+			.no_underline {
+				text-decoration: none
+			}
+			#menu {
+				border: 0px solid black;
+				padding-top: 12px;
+				width: 1300px;
+				height: 70px;
+			}
+		
+			ul li {
+				display: inline;
+				color: black;
+			}
+		
+		</style>
+		<script>
+			function checkForm(){
+				//alert("aa");
+				/* 校验姓名 */
+				// 1.获取用户输入的数据
+				var uValue=document.getElementById("stuname").value;
+				// alert(uValue);
+				if(uValue==""){
+					// 2.给出错误提示信息
+					alert("姓名不能为空！");
+					return false;
+				}
+				/* 校验密码 */
+				var pValue=document.getElementById("password").value;
+				if(pValue==""){
+					alert("密码不能为空！");
+					return false;
+				}
+				/* 校验确认密码 */
+				var rpValue=document.getElementById("repassword").value;
+				if(rpValue!=pValue){
+					alert("两次密码输入不一致！");
+					return false;
+				}
+				 /* 校验邮箱 */
+				 var eValue=document.getElementById("email").value;
+				 if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(eValue)){
+				 	alert("邮箱格式不正确!");
+				 	return false;
+				 }
+				 /* 校验手机号码 */
+				 var phValue=document.getElementById("phonenumber").value;
+				 if(phValue==""){
+				 	alert("手机号码不能为空！");
+				 	return false;
+				 }
+			}
+		</script>
 	</head>
 	<body>
-		<table border="0px" align="center" width="1300px" cellpadding="0px" cellspacing="0px">
+		<div id="father">
+			<!-- 1.导航栏部分-->
+			<div id="menu">
+				<ul>
+					<a class="no_underline" href="../homePage/Index.html">
+						<li style="font-size: 25px;">首页</li>
+					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="no_underline" href="../loginPage/login.html">
+						<li style="font-size: 25px;">登录</li>
+					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="no_underline" href="sturegist.html">
+						<li style="font-size: 25px;">注册</li>
+
+					</a>
+				</ul>
+			</div>
 			<tr>
 				<td height="600px" background="../pictures/regist_bg.jpg">
-					<form action="#" method="get" name="regForm">
-						<table border="0px" width="750px" height="400px" align="center" cellpadding="0px" cellspacing="0px" >
-							<tr height="40px">
+					<form action="#" method="get" name="regForm" onsubmit="return checkForm()">
+						<table border="0px" width="500px" height="400px" align="center" cellpadding="0px" cellspacing="0px">
+							<tr height="50px">
 								<td colspan="2">
 									<font size="4">学生注册</font> &nbsp;&nbsp;&nbsp;STUDENTS REGISTER
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<font color="red">*</font>用户名:
-								</td>
-								<td>
-									<input type="text" name="user" size="34px" />
-									<font color="red">用户名不得小于3个字符</font>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<font color="red">*</font>密码:
-								</td>
-								<td>
-									<input type="password" name="password" size="34px" />
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<font color="red">*</font>确认密码:
-								</td>
-								<td>
-									<input type="password" name="repassword" size="34px"></input>
 								</td>
 							</tr>
 							<tr>
@@ -45,12 +97,36 @@
 									<font color="red">*</font>姓名:
 								</td>
 								<td>
-									<input type="text" name="stuname" size="34px" />
+									<input type="text" name="stuname" size="34px" id="stuname" />
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<font color="red">*</font>性别:
+									<font color="red">*</font>密码:
+								</td>
+								<td>
+									<input type="password" name="password" size="34px" id="password" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<font color="red">*</font>确认密码:
+								</td>
+								<td>
+									<input type="password" name="repassword" size="34px" id="repassword"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<font color="red">*</font>邮箱:
+								</td>
+								<td>
+									<input type="text" name="email" size="34px" id="email"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									性别:
 								</td>
 								<td>
 									<select>
@@ -61,7 +137,7 @@
 							</tr>
 							<tr>
 								<td>
-									<font color="red">*</font>出生日期:
+									出生日期:
 								</td>
 								<td>
 									<select>
@@ -78,25 +154,18 @@
 									</select>
 								</td>
 							</tr>
+
 							<tr>
 								<td>
-									<font color="red">*</font>家长姓名:
+									家长手机号:
 								</td>
 								<td>
-									<input type="text" name="parname" size="34px" />
+									<input type="text" name="phonenumber" size="34px" id="phonenumber"/>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<font color="red">*</font>家长手机号:
-								</td>
-								<td>
-									<input type="text" name="phonenumber" size="34px" />
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<font color="red">*</font>班级:
+									班级:
 								</td>
 								<td>
 									<select>
@@ -132,6 +201,7 @@
 					</form>
 				</td>
 			</tr>
-		</table>
+			</table>
+		</div>
 	</body>
 </html>

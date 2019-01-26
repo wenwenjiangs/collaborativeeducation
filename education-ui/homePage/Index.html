@@ -9,10 +9,13 @@
 				width: 1300px;
 				height: 600px;
 				margin: auto;
+				background: url('../pictures/bg-1.jpg');
 			}
+
 			.no_underline {
 				text-decoration: none
 			}
+
 			#menu {
 				border: 0px solid black;
 				padding-top: 12px;
@@ -24,7 +27,6 @@
 				display: inline;
 				color: black;
 			}
-
 		</style>
 		<script>
 			function init() {
@@ -33,9 +35,11 @@
 			}
 			//书写函数
 			var i = 0
+
 			function changeImg() {
 				i++;
-				document.getElementById("img1").src = "../pictures/bg-" + i + ".jpg";
+				//document.getElementById("img1").src = "../pictures/bg-" + i + ".jpg";
+				document.getElementById("father").style.background = "url(" + '../pictures/bg-' + i + '.jpg' + ")";
 				if (i == 2) {
 					i = 0;
 				}
@@ -55,13 +59,8 @@
 					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a class="no_underline" href="../registerPage/sturegist.html">
 						<li style="font-size: 25px;">注册</li>
-
 					</a>
 				</ul>
-			</div>
-			<!-- 2.轮播图片部分 -->
-			<div id="">
-				<img src="../pictures/bg-1.jpg" width="100%" id="img1" />
 			</div>
 		</div>
 	</body>
