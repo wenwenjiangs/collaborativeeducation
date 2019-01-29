@@ -16,84 +16,134 @@
 			}
 			#menu {
 				border: 0px solid black;
-				padding-top: 12px;
+				padding-top: 10px;
 				width: 1300px;
 				height: 70px;
+				margin-bottom: 15px;
+				margin-top: 10px;
 			}
 		
-			ul li {
-				display: inline;
-				color: black;
+			
+				label.error{
+				background:url(../pictures/unchecked.gif) no-repeat 10px 3px;
+				padding-left: 30px;
+				font-family:georgia;
+				font-size: 15px;
+				font-style: normal;
+				color: red;
 			}
-		
+			
+			label.success{
+				background:url(../pictures/checked.gif) no-repeat 10px 3px;
+				padding-left: 30px;
+			}
+			#form{
+				height: 460px;
+				border: 0px solid red;
+				
+			}
+			#form1{
+				border: 5px solid gray;
+				position: relative;
+				width: 660px;
+				height: 450px;
+				left: 300px;
+				
+			}
 		</style>
+		<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="../js/messages_zh.js"></script>
 		<script>
-			function checkForm(){
-				//alert("aa");
-				/* 校验姓名 */
-				// 1.获取用户输入的数据
-				var uValue=document.getElementById("stuname").value;
-				// alert(uValue);
-				if(uValue==""){
-					// 2.给出错误提示信息
-					alert("姓名不能为空！");
-					return false;
-				}
-				/* 校验密码 */
-				var pValue=document.getElementById("password").value;
-				if(pValue==""){
-					alert("密码不能为空！");
-					return false;
-				}
-				/* 校验确认密码 */
-				var rpValue=document.getElementById("repassword").value;
-				if(rpValue!=pValue){
-					alert("两次密码输入不一致！");
-					return false;
-				}
-				 /* 校验邮箱 */
-				 var eValue=document.getElementById("email").value;
-				 if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(eValue)){
-				 	alert("邮箱格式不正确!");
-				 	return false;
-				 }
-				 /* 校验手机号码 */
-				 var phValue=document.getElementById("phonenumber").value;
-				 if(phValue==""){
-				 	alert("手机号码不能为空！");
-				 	return false;
-				 }
-			}
+			$(function(){
+				$("#registForm").validate({
+					rules:{
+						stuname:{
+							required:true,
+							minlength:2,
+							maxlength:5
+						},
+						password:{
+							required:true,
+							digits:true,
+							minlength:6
+						},
+						repassword:{
+							required:true,
+							equalTo:"[name='password']"
+						},
+						email:{
+							required:true,
+							email:true
+						},
+						phonenumber:{
+							required:true,
+							
+						}
+				
+					},
+					messages:{
+						stuname:{
+							required:"姓名不能为空!",
+							minlength:"姓名不得少于2位!",
+							maxlength:"姓名不得多于5位"
+						},
+						password:{
+							required:"密码不能为空!",
+							digits:"密码必须是整数!",
+							minlength:"密码不得少于6位!"
+						},
+						repassword:{
+							required:"确认密码不能为空!",
+							equalTo:"两次输入密码不一致!"
+						},
+						email:{
+							required:"邮箱不能为空!",
+							email:"邮箱格式不正确!"
+						},
+						phonenumber:{
+							required:"手机号码不能为空!",
+							
+						}
+		
+						
+					},
+					errorElement: "label", 
+					success: function(label) { 
+						label.text(" ") 
+							.addClass("success"); 
+					}
+				});
+			});
 		</script>
 	</head>
 	<body>
 		<div id="father">
 			<!-- 1.导航栏部分-->
 			<div id="menu">
-				<ul>
+				
 					<a class="no_underline" href="../homePage/Index.html">
-						<li style="font-size: 25px;">首页</li>
+						<font size="6" color="black">首页</font>
 					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a class="no_underline" href="../loginPage/login.html">
-						<li style="font-size: 25px;">登录</li>
+						<font size="6" color="black">登录</font>
 					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a class="no_underline" href="sturegist.html">
-						<li style="font-size: 25px;">注册</li>
-
+						<font size="6" color="black">注册</font>
 					</a>
-				</ul>
+				
 			</div>
-			<tr>
-				<td height="600px" background="../pictures/regist_bg.jpg">
-					<form action="#" method="get" name="regForm" onsubmit="return checkForm()">
-						<table border="0px" width="500px" height="400px" align="center" cellpadding="0px" cellspacing="0px">
+			<div id="form">
+				<form action="#" method="get" id="registForm">
+					<div id="form1">
+						<table border="0px" width="100%" height="100%" align="center" cellpadding="0px" cellspacing="0px" bgcolor="white">
 							<tr height="50px">
 								<td colspan="2">
 									<font size="4">学生注册</font> &nbsp;&nbsp;&nbsp;STUDENTS REGISTER
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td width="180px">
 									<font color="red">*</font>姓名:
 								</td>
 								<td>
@@ -113,7 +163,7 @@
 									<font color="red">*</font>确认密码:
 								</td>
 								<td>
-									<input type="password" name="repassword" size="34px" id="repassword"/>
+									<input type="password" name="repassword" size="34px" id="repassword" />
 								</td>
 							</tr>
 							<tr>
@@ -121,12 +171,12 @@
 									<font color="red">*</font>邮箱:
 								</td>
 								<td>
-									<input type="text" name="email" size="34px" id="email"/>
+									<input type="text" name="email" size="34px" id="email" />
 								</td>
 							</tr>
 							<tr>
 								<td>
-									性别:
+									<font color="red">*</font>性别:
 								</td>
 								<td>
 									<select>
@@ -137,7 +187,7 @@
 							</tr>
 							<tr>
 								<td>
-									出生日期:
+									<font color="red">*</font>出生日期:
 								</td>
 								<td>
 									<select>
@@ -157,15 +207,15 @@
 
 							<tr>
 								<td>
-									家长手机号:
+									<font color="red">*</font>家长手机号:
 								</td>
 								<td>
-									<input type="text" name="phonenumber" size="34px" id="phonenumber"/>
+									<input type="text" name="phonenumber" size="34px" id="phonenumber" />
 								</td>
 							</tr>
 							<tr>
 								<td>
-									班级:
+									<font color="red">*</font>班级:
 								</td>
 								<td>
 									<select>
@@ -198,10 +248,9 @@
 								</td>
 							</tr>
 						</table>
-					</form>
-				</td>
-			</tr>
-			</table>
+					</div>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
